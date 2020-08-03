@@ -15,26 +15,43 @@ export default class ExpressionStack {
     this.pushOperation(value);
   }
 
-  pushNumber(value) {
-    if (this.hasEqual()) this.clear();
-
-    if (this.isPositionOdd()) {
-      const previousValue = this.top() > 0 ? this.top() : this.top().includes('.') ? this.top() : '';
-      this.setTop(previousValue + value);
-      return;
-    }
-
-    this.stack.push(value);
+  top() {
+    return this.stack[this.stack.length - 1];
   }
 
-  percent() {
-    if (this.hasEqual()) this.truncate();
+  truncate() {
+    const lastElement = this.top();
+    this.stack.length = [1];
+    this.stack[0] = lastElement;
+  }
 
-    const previousValue = this.stack.length > 0 ? this.top() : '0';
-    if (previousValue.includes('%') || !this.isPositionOdd()) {
-      return;
+  equal(result) {
+    this.stack.push(OPERATIONS.EQUAL.operator, result.toString());
+  }
+
+  hasEqual() {
+    return this.stack.includes(OPERATIONS.EQUAL.operator);
+  }
+
+  clear() {
+    this.stack.length = 0;
+  }
+
+  calculate() {
+    if ( (isNaN(Number(this.top())) && !this.top().includes('%')) || (this.hasEqual()) ) return;
+
+    const strExpression = this.convertForCalculation();
+    const expressionCalculation = Number(evaluate(strExpression));
+
+    const result = Number.isFinite(expressionCalculation) ? expressionCalculation : new Error('Expression Error');
+
+    if (result.constructor.name !== 'Error') {
+      this.clear();
+      this.equal(result);
+    } else {
+      this.clear();
+      throw result;
     }
-    this.setTop(previousValue + '%');
   }
 
   float() {
@@ -52,6 +69,16 @@ export default class ExpressionStack {
     this.setTop(previousValue + '.');
   }
 
+  percent() {
+    if (this.hasEqual()) this.truncate();
+
+    const previousValue = this.stack.length > 0 ? this.top() : '0';
+    if (previousValue.includes('%') || !this.isPositionOdd()) {
+      return;
+    }
+    this.setTop(previousValue + '%');
+  }
+
   negative() {
     if (this.hasEqual()) this.truncate();
 
@@ -62,63 +89,14 @@ export default class ExpressionStack {
     }
   }
 
-  clear() {
-    this.stack.length = 0;
-  }
-
-  pushOperation(value) {
-    if (this.hasEqual()) this.truncate();
-
-    if (this.isPositionOdd()) {
-      this.stack.push(value)
-    }
-  }
-
-  isPositionOdd() {
-    return isOdd(this.stack.length);
-  }
-
-  setTop(value) {
-    const top = this.stack.length > 0 ? this.stack.length - 1 : 0;
-
-    this.stack[top] = value;
-  }
-
-  top() {
-    return this.stack[this.stack.length - 1];
-  }
-
-  equal(result) {
-    this.stack.push(OPERATIONS.EQUAL.operator, result.toString());
-  }
-
-  hasEqual() {
-    return this.stack.includes(OPERATIONS.EQUAL.operator);
-  }
-
-  truncate() {
-    const lastElement = this.top();
-    this.stack.length = [1];
-    this.stack[0] = lastElement;
-  }
-
-  calculate() {
-    const strExpression = this.convertForCalculation();
-    const expressionCalculation = Number(evaluate(strExpression));
-
-    const result = Number.isFinite(expressionCalculation) ? expressionCalculation : new Error('Expression Error');
-
-    if (result.constructor.name !== 'Error') {
-      this.clear();
-      this.equal(result);
-    } else {
-      this.clear();
-      throw result;
-    }
-  }
-
-  getStack() {
-    return this.stack;
+  convertForDisplay() {
+    return this.stack.map(e => {
+      if (OPERATIONS[e]?.type === e) {
+        return OPERATIONS[e].text;
+      } else {
+        return e;
+      }
+    }).join(' ');
   }
 
   convertForCalculation() {
@@ -133,13 +111,37 @@ export default class ExpressionStack {
     }).join('');
   }
 
-  convertForDisplay() {
-    return this.stack.map(e => {
-      if (OPERATIONS[e]?.type === e) {
-        return OPERATIONS[e].text;
-      } else {
-        return e;
-      }
-    }).join(' ');
+  setTop(value) {
+    const top = this.stack.length > 0 ? this.stack.length - 1 : 0;
+
+    this.stack[top] = value;
+  }
+
+  isPositionOdd() {
+    return isOdd(this.stack.length);
+  }
+
+  pushNumber(value) {
+    if (this.hasEqual()) this.clear();
+
+    if (this.isPositionOdd()) {
+      const previousValue = this.top() > 0 ? this.top() : this.top().includes('.') ? this.top() : '';
+      this.setTop(previousValue + value);
+      return;
+    }
+
+    this.stack.push(value);
+  }
+
+  pushOperation(value) {
+    if (this.hasEqual()) this.truncate();
+
+    if (this.isPositionOdd()) {
+      this.stack.push(value)
+    }
+  }
+
+  getStack() {
+    return this.stack;
   }
 }
