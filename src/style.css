@@ -49,3 +49,8 @@ button {
   background: #dfe1e5;
   font-size: 1.5em;
 }
+
+button.calculate {
+    background: #4285f4;
+    color: white;
+}

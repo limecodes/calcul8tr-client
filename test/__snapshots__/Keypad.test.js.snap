@@ -7,9 +7,9 @@ Array [
   >
     <button
       onClick={[Function]}
-      value={0}
+      value={7}
     >
-      0
+      7
     </button>
   </div>,
   <div
@@ -17,9 +17,9 @@ Array [
   >
     <button
       onClick={[Function]}
-      value={1}
+      value={8}
     >
-      1
+      8
     </button>
   </div>,
   <div
@@ -27,19 +27,20 @@ Array [
   >
     <button
       onClick={[Function]}
-      value={2}
+      value={9}
     >
-      2
+      9
     </button>
   </div>,
   <div
     className="Button"
   >
     <button
+      className="operation"
       onClick={[Function]}
-      value={3}
+      value="DIVIDE"
     >
-      3
+      ÷
     </button>
   </div>,
   <div
@@ -76,10 +77,11 @@ Array [
     className="Button"
   >
     <button
+      className="operation"
       onClick={[Function]}
-      value={7}
+      value="MULTIPLY"
     >
-      7
+      ×
     </button>
   </div>,
   <div
@@ -87,9 +89,9 @@ Array [
   >
     <button
       onClick={[Function]}
-      value={8}
+      value={1}
     >
-      8
+      1
     </button>
   </div>,
   <div
@@ -97,9 +99,51 @@ Array [
   >
     <button
       onClick={[Function]}
-      value={9}
+      value={2}
     >
-      9
+      2
+    </button>
+  </div>,
+  <div
+    className="Button"
+  >
+    <button
+      onClick={[Function]}
+      value={3}
+    >
+      3
+    </button>
+  </div>,
+  <div
+    className="Button"
+  >
+    <button
+      className="operation"
+      onClick={[Function]}
+      value="SUBTRACT"
+    >
+      −
+    </button>
+  </div>,
+  <div
+    className="Button"
+  >
+    <button
+      onClick={[Function]}
+      value={0}
+    >
+      0
+    </button>
+  </div>,
+  <div
+    className="Button"
+  >
+    <button
+      className="calculate"
+      onClick={[Function]}
+      value="EQUAL"
+    >
+      =
     </button>
   </div>,
 ]

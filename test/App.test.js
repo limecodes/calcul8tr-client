@@ -31,8 +31,8 @@ describe('Basic functionality', () => {
     });
 
     const keypad = container.querySelector('.Keypad');
-    const button = keypad.querySelector('button');
-    expect(button.textContent).toBe('0');
+    const buttonTwo = keypad.querySelector('button[value="2"]');
+    expect(buttonTwo.textContent).toBe('2');
   });
 
   test('Displays button value on click', () => {
