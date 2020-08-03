@@ -30,7 +30,8 @@ describe('Basic functionality', () => {
       ReactDOM.render(<App />, container);
     });
 
-    const display = container.querySelector('.Keypad');
-    expect(display.textContent).toBe('Keypad');
+    const keypad = container.querySelector('.Keypad');
+    const button = keypad.querySelector('button');
+    expect(button.textContent).toBe('0');
   });
 });
