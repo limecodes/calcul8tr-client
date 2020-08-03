@@ -1,3 +1,5 @@
+import { isOdd } from '../utils';
+
 export default class ExpressionStack {
   constructor() {
     this.stack  = [];
