@@ -1,1 +1,2 @@
 - Create test if function triggers on click on component Keypad
+- Replace constants in ExpressionStack.test.js

@@ -13,11 +13,11 @@ const {
 } = MODIFIERS;
 
 const layout = [
-  ['', '', '', CLEAR],
+  ['', TOGGLE_NEGATIVE, PERCENTAGE, CLEAR],
   [7, 8, 9, DIVIDE],
   [4, 5, 6, MULTIPLY],
   [1, 2, 3, SUBTRACT],
-  [0, ADD, EQUAL],
+  [0, FLOAT, EQUAL, ADD],
 ];
 
 function Keypad(props) {

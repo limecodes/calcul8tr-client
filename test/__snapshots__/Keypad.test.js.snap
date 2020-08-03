@@ -14,20 +14,24 @@ Array [
   <div
     className="Button"
   >
-    <span
-      className="Placeholder"
+    <button
+      className="toggle_negative"
+      onClick={[Function]}
+      value="TOGGLE_NEGATIVE"
     >
-       
-    </span>
+      +/-
+    </button>
   </div>,
   <div
     className="Button"
   >
-    <span
-      className="Placeholder"
+    <button
+      className="percentage"
+      onClick={[Function]}
+      value="PERCENTAGE"
     >
-       
-    </span>
+      %
+    </button>
   </div>,
   <div
     className="Button"
@@ -187,11 +191,11 @@ Array [
     className="Button"
   >
     <button
-      className="operation"
+      className="float"
       onClick={[Function]}
-      value="ADD"
+      value="FLOAT"
     >
-      +
+      .
     </button>
   </div>,
   <div
@@ -203,6 +207,17 @@ Array [
       value="EQUAL"
     >
       =
+    </button>
+  </div>,
+  <div
+    className="Button"
+  >
+    <button
+      className="operation"
+      onClick={[Function]}
+      value="ADD"
+    >
+      +
     </button>
   </div>,
 ]

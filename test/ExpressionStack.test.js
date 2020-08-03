@@ -1,6 +1,6 @@
 import ExpressionStack from '../src/logic/ExpressionStack';
 
-import { MULTIPLY, OPERATIONS } from '../src/constants';
+import { OPERATIONS } from '../src/constants';
 
 describe('Basic Functionality', () => {
   test('Should have blank array', () => {
@@ -24,7 +24,7 @@ describe('Basic Functionality', () => {
   test('First element cannot be an operation', () => {
     const expressionStack = new ExpressionStack();
 
-    expressionStack.push(MULTIPLY);
+    expressionStack.push('MULTIPLY');
 
     const expected = [];
 
@@ -35,9 +35,9 @@ describe('Basic Functionality', () => {
     const expressionStack = new ExpressionStack();
 
     expressionStack.push('2');
-    expressionStack.push(MULTIPLY);
+    expressionStack.push('MULTIPLY');
 
-    const expected = ['2', MULTIPLY];
+    const expected = ['2', 'MULTIPLY'];
 
     expect(expressionStack.getStack()).toEqual(expected);
   });
@@ -46,19 +46,19 @@ describe('Basic Functionality', () => {
     const expressionStack = new ExpressionStack();
 
     expressionStack.push('2');
-    expressionStack.push(MULTIPLY);
+    expressionStack.push('MULTIPLY');
     expressionStack.push('2');
 
-    const expected = '2 ' + OPERATIONS[MULTIPLY].text + ' 2';
+    const expected = '2 ' + OPERATIONS['MULTIPLY'].text + ' 2';
 
     expect(expressionStack.convertForDisplay()).toEqual(expected);
   });
 
-  test('Should clear display', () => {
+  test('Should clear stack', () => {
     const expressionStack = new ExpressionStack();
 
     expressionStack.push('2');
-    expressionStack.push(MULTIPLY);
+    expressionStack.push('MULTIPLY');
     expressionStack.push('2');
     expressionStack.clear();
 
@@ -71,7 +71,7 @@ describe('Basic Functionality', () => {
     const expressionStack = new ExpressionStack();
 
     expressionStack.push('2');
-    expressionStack.push(MULTIPLY);
+    expressionStack.push('MULTIPLY');
     expressionStack.push('2');
     expressionStack.calculate();
 
@@ -80,5 +80,22 @@ describe('Basic Functionality', () => {
 
     expect(expressionStack.convertForDisplay()).toEqual(expectedExpression);
     expect(expressionStack.stack).toEqual(expectedStack);
+  });
+
+  test('Should determine if current position is odd if length is zero', () => {
+    const expressionStack = new ExpressionStack();
+
+    expressionStack.push('2');
+
+    expect(expressionStack.isPositionOdd()).toEqual(true);
+  });
+
+  test('Should determine if current position is odd', () => {
+    const expressionStack = new ExpressionStack();
+
+    expressionStack.push('2');
+    expressionStack.push('MULTIPLY');
+
+    expect(expressionStack.isPositionOdd()).toEqual(false);
   });
 });

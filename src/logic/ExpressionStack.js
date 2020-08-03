@@ -16,6 +16,8 @@ export default class ExpressionStack {
   }
 
   pushNumber(value) {
+    if (this.hasEqual()) this.clear();
+
     if (this.isPositionOdd()) {
       const previousValue = this.top() > 0 ? this.top() : this.top().includes('.') ? this.top() : '';
       this.setTop(previousValue + value);

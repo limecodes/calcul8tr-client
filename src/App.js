@@ -26,11 +26,11 @@ const handleOperations = (value, action) => {
     case OPERATION:
       stack.push(value);
       break;
-    case CLEAR:
-      stack.clear();
-      break;
     case CALCULATE:
       stack.calculate();
+      break;
+    case CLEAR:
+      stack.clear();
       break;
     default:
       return;

@@ -1,15 +1,15 @@
-export const MULTIPLY = 'MULTIPLY';
-export const DIVIDE = 'DIVIDE';
-export const SUBTRACT = 'SUBTRACT';
-export const ADD = 'ADD';
-export const EQUAL = 'EQUAL';
-export const CLEAR = 'CLEAR';
-export const OPERATION = 'OPERATION';
-export const CALCULATE = 'CALCULATE';
-export const TOGGLE_NEGATIVE = 'TOGGLE_NEGATIVE';
-export const PERCENTAGE = 'PERCENTAGE';
-export const FLOAT = 'FLOAT';
-export const NUMBER = 'NUMBER';
+const MULTIPLY = 'MULTIPLY';
+const DIVIDE = 'DIVIDE';
+const SUBTRACT = 'SUBTRACT';
+const ADD = 'ADD';
+const EQUAL = 'EQUAL';
+const CLEAR = 'CLEAR';
+const OPERATION = 'OPERATION';
+const CALCULATE = 'CALCULATE';
+const TOGGLE_NEGATIVE = 'TOGGLE_NEGATIVE';
+const PERCENTAGE = 'PERCENTAGE';
+const FLOAT = 'FLOAT';
+const NUMBER = 'NUMBER';
 
 export const ACTIONS = {
   NUMBER: NUMBER,

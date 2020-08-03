@@ -150,4 +150,37 @@ describe('Basic functionality', () => {
 
     expect(display.textContent).toBe('= 6');
   });
+
+  test('Hitting a number after a calculation should clear and display number', () => {
+    act(() => {
+      ReactDOM.render(<App />, container);
+    });
+
+    const display = container.querySelector('.Display');
+    const buttonTwo = container.querySelector('button[value="2"]');
+    const buttonAdd = container.querySelector('button[value="ADD"]');
+    const buttonClear = container.querySelector('button[value="CLEAR"]');
+    const buttonCalculate = container.querySelector('button[value="EQUAL"]');
+
+    act(() =>{
+      buttonClear.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+    });
+
+    expect(display.textContent).toBe('0');
+
+    act(() => {
+      buttonTwo.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+      buttonAdd.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+      buttonTwo.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+      buttonCalculate.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+    });
+
+    expect(display.textContent).toBe('= 4');
+
+    act(() =>{
+      buttonTwo.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+    });
+
+    expect(display.textContent).toBe('2');
+  });
 });
