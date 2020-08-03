@@ -26,6 +26,7 @@
     "eslint-plugin-react": "^7.20.5",
     "eslint-plugin-react-hooks": "^4.0.8",
     "html-webpack-plugin": "^4.3.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^26.2.2",
     "prettier": "^2.0.5",
     "react-test-renderer": "^16.13.1",
@@ -47,5 +48,10 @@
       "@babel/preset-env",
       "@babel/preset-react"
     ]
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css)$": "identity-obj-proxy"
+    }
   }
 }
