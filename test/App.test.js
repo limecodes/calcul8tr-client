@@ -21,7 +21,7 @@ describe('Basic functionality', () => {
       ReactDOM.render(<App />, container);
     });
 
-    const input = container.querySelector('.Display');
-    expect(input.textContent).toBe('0');
+    const display = container.querySelector('.Display');
+    expect(display.textContent).toBe('0');
   });
 });
