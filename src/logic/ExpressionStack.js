@@ -1,7 +1,7 @@
 import { evaluate } from 'mathjs';
 
 import { OPERATIONS } from '../constants';
-import { isOdd } from '../utils';
+import { isOdd, isFloat } from '../utils';
 
 export default class ExpressionStack {
   constructor() {
@@ -25,6 +25,21 @@ export default class ExpressionStack {
     }
 
     this.stack.push(value);
+  }
+
+  float() {
+    if (this.hasEqual()) this.clear();
+
+    const previousValue = this.stack.length > 0 ? this.top() : '0';
+    if (isFloat(previousValue) || previousValue.includes('.')) {
+      return;
+    }
+
+    if (!this.isPositionOdd()) {
+      this.stack.push('0.');
+      return;
+    }
+    this.setTop(previousValue + '.');
   }
 
   clear() {

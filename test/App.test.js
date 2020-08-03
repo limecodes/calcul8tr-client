@@ -183,4 +183,30 @@ describe('Basic functionality', () => {
 
     expect(display.textContent).toBe('2');
   });
+
+  test('Should be able to do decimal number operations', () => {
+    act(() => {
+      ReactDOM.render(<App />, container);
+    });
+
+    const display = container.querySelector('.Display');
+    const buttonClear = container.querySelector('button[value="CLEAR"]');
+    const buttonTwo = container.querySelector('button[value="2"]');
+    const buttonFloat = container.querySelector('button[value="FLOAT"]');
+
+    act(() =>{
+      buttonClear.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+    });
+
+    expect(display.textContent).toBe('0');
+
+    act(() =>{
+      buttonTwo.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+      buttonFloat.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+      buttonTwo.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+    });
+
+    expect(display.textContent).toBe('2.2');
+
+  });
 });

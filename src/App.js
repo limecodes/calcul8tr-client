@@ -34,6 +34,7 @@ const handleOperations = (value, action) => {
       stack.clear();
       break;
     case FLOAT:
+      stack.float();
       break;
     default:
       return;
