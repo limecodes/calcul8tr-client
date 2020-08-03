@@ -34,8 +34,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "scripts": {
-    "format": "prettier .",
-    "format-fix": "prettier . --write",
+    "format": "prettier . --write",
     "lint": "eslint src/*.js",
     "lint-fix": "eslint src/*.js --fix",
     "test": "jest",
