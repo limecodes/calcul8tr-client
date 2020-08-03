@@ -5,13 +5,16 @@ import { isOdd, isFloat } from '../utils';
 
 export default class ExpressionStack {
   constructor() {
-    this.stack  = [];
+    this.stack = [];
   }
 
   push(value) {
     const isOperation = isNaN(Number(value));
 
-    if (!isOperation) { this.pushNumber(value); return; }
+    if (!isOperation) {
+      this.pushNumber(value);
+      return;
+    }
     this.pushOperation(value);
   }
 
@@ -38,12 +41,18 @@ export default class ExpressionStack {
   }
 
   calculate() {
-    if ( (isNaN(Number(this.top())) && !this.top().includes('%')) || (this.hasEqual()) ) return;
+    if (
+      (isNaN(Number(this.top())) && !this.top().includes('%')) ||
+      this.hasEqual()
+    )
+      return;
 
     const strExpression = this.convertForCalculation();
     const expressionCalculation = Number(evaluate(strExpression));
 
-    const result = Number.isFinite(expressionCalculation) ? expressionCalculation : new Error('Expression Error');
+    const result = Number.isFinite(expressionCalculation)
+      ? expressionCalculation
+      : new Error('Expression Error');
 
     if (result.constructor.name !== 'Error') {
       this.clear();
@@ -90,25 +99,29 @@ export default class ExpressionStack {
   }
 
   convertForDisplay() {
-    return this.stack.map(e => {
-      if (OPERATIONS[e]?.type === e) {
-        return OPERATIONS[e].text;
-      } else {
-        return e;
-      }
-    }).join(' ');
+    return this.stack
+      .map((e) => {
+        if (OPERATIONS[e]?.type === e) {
+          return OPERATIONS[e].text;
+        } else {
+          return e;
+        }
+      })
+      .join(' ');
   }
 
   convertForCalculation() {
-    return this.stack.map(e => {
-      if (OPERATIONS[e]?.type === e) {
-        return OPERATIONS[e].operator;
-      } else if (e.includes('%')) {
-        return '(' + e.replace('%', ' / 100 ') + ')';
-      } else {
-        return e;
-      }
-    }).join('');
+    return this.stack
+      .map((e) => {
+        if (OPERATIONS[e]?.type === e) {
+          return OPERATIONS[e].operator;
+        } else if (e.includes('%')) {
+          return '(' + e.replace('%', ' / 100 ') + ')';
+        } else {
+          return e;
+        }
+      })
+      .join('');
   }
 
   setTop(value) {
@@ -125,11 +138,15 @@ export default class ExpressionStack {
     if (this.hasEqual()) this.clear();
 
     if (this.isPositionOdd()) {
-      const previousValue = this.top() > 0 ? this.top() : this.top().includes('.') ? this.top() : '';
+      const previousValue =
+        this.top() > 0
+          ? this.top()
+          : this.top().includes('.')
+          ? this.top()
+          : '';
       this.setTop(previousValue + value);
       return;
     }
-
     this.stack.push(value);
   }
 
@@ -137,7 +154,7 @@ export default class ExpressionStack {
     if (this.hasEqual()) this.truncate();
 
     if (this.isPositionOdd()) {
-      this.stack.push(value)
+      this.stack.push(value);
     }
   }
 
