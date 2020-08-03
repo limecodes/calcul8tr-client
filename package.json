@@ -38,7 +38,9 @@
     "format-fix": "prettier . --write",
     "lint": "eslint src/*.js",
     "lint-fix": "eslint src/*.js --fix",
-    "test": "jest"
+    "test": "jest",
+    "build": "webpack",
+    "start": "webpack-dev-server --open"
   },
   "babel": {
     "presets": [
