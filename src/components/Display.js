@@ -1,7 +1,11 @@
 import React from 'react';
 
 function Display(props) {
-  return <div className="Display">{props.value}</div>;
+  const {
+    value
+  } = props;
+
+  return <div className="Display">{value ? value : 0}</div>;
 }
 
 export default Display;

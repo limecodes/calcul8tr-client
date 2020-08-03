@@ -22,7 +22,7 @@ describe('Basic functionality', () => {
     });
 
     const display = container.querySelector('.Display');
-    expect(display.textContent).toBe('');
+    expect(display.textContent).toBe('0');
   });
 
   test('Renders displays keypad', () => {
@@ -33,5 +33,20 @@ describe('Basic functionality', () => {
     const keypad = container.querySelector('.Keypad');
     const button = keypad.querySelector('button');
     expect(button.textContent).toBe('0');
+  });
+
+  test('Displays button value on click', () => {
+    act(() => {
+      ReactDOM.render(<App />, container);
+    });
+
+    const display = container.querySelector('.Display');
+    const buttonTwo = container.querySelector('button[value="2"]');
+
+    act(() =>{
+      buttonTwo.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+    });
+
+    expect(display.textContent).toBe('2');
   });
 });

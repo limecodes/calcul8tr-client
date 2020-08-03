@@ -1,0 +1,1 @@
+- Create test if function triggers on click on component Keypad
