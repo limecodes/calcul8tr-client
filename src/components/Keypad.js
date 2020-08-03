@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Keypad() {
-  return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((e, i) => <button key={i}>{e}</button>);
+  return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((e, i) => <div className='Button'><button key={i}>{e}</button></div>);
 }
 
 export default Keypad;
