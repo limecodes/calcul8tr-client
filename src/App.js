@@ -15,6 +15,7 @@ const {
   CLEAR,
   CALCULATE,
   FLOAT,
+  PERCENTAGE,
 } = ACTIONS;
 
 const stack = new ExpressionStack();
@@ -35,6 +36,8 @@ const handleOperations = (value, action) => {
       break;
     case FLOAT:
       stack.float();
+      break;
+    case PERCENTAGE:
       break;
     default:
       return;

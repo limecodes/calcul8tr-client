@@ -27,6 +27,16 @@ export default class ExpressionStack {
     this.stack.push(value);
   }
 
+  percent() {
+    if (this.hasEqual()) this.truncate();
+
+    const previousValue = this.stack.length > 0 ? this.top() : '0';
+    if (previousValue.includes('%') || !this.isPositionOdd()) {
+      return;
+    }
+    this.setTop(previousValue + '%');
+  }
+
   float() {
     if (this.hasEqual()) this.clear();
 
