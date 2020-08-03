@@ -30,6 +30,8 @@ export default class ExpressionStack {
   }
 
   pushOperation(value) {
+    if (this.hasEqual()) this.truncate();
+
     if (this.isPositionOdd()) {
       this.stack.push(value)
     }
@@ -51,6 +53,16 @@ export default class ExpressionStack {
 
   equal(result) {
     this.stack.push(OPERATIONS.EQUAL.operator, result.toString());
+  }
+
+  hasEqual() {
+    return this.stack.includes(OPERATIONS.EQUAL.operator);
+  }
+
+  truncate() {
+    const lastElement = this.top();
+    this.stack.length = [1];
+    this.stack[0] = lastElement;
   }
 
   calculate() {
