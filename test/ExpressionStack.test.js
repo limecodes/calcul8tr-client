@@ -1,6 +1,6 @@
 import ExpressionStack from '../src/logic/ExpressionStack';
 
-import { MULTIPLY } from '../src/constants';
+import { MULTIPLY, OPERATIONS } from '../src/constants';
 
 describe('Basic Functionality', () => {
   test('Should have blank array', () => {
@@ -28,8 +28,29 @@ describe('Basic Functionality', () => {
 
     const expected = [];
 
-    console.log(expressionStack.getStack());
+    expect(expressionStack.getStack()).toEqual(expected);
+  });
+
+  test('Can push operation', () => {
+    const expressionStack = new ExpressionStack();
+
+    expressionStack.push('2');
+    expressionStack.push(MULTIPLY);
+
+    const expected = ['2', MULTIPLY];
 
     expect(expressionStack.getStack()).toEqual(expected);
+  });
+
+  test('Should convert display', () => {
+    const expressionStack = new ExpressionStack();
+
+    expressionStack.push('2');
+    expressionStack.push(MULTIPLY);
+    expressionStack.push('2');
+
+    const expected = '2 ' + OPERATIONS[MULTIPLY].text + ' 2';
+
+    expect(expressionStack.convertForDisplay()).toEqual(expected);
   });
 });
