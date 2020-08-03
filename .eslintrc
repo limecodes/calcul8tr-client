@@ -5,12 +5,9 @@
     "jest": true
   },
   "parser": "babel-eslint",
-  "extends": [
-    "react-app",
-    "airbnb"
-  ],
-  "plugins": [
-    "react",
-    "import"
-  ]
+  "extends": ["react-app", "airbnb"],
+  "plugins": ["react", "import"],
+  "rules": {
+    "react/jsx-filename-extension": [2, {"extensions": [".js", ".jsx"]}]
+  }
 }

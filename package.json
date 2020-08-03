@@ -37,6 +37,13 @@
     "format": "prettier .",
     "format-fix": "prettier . --write",
     "lint": "eslint src/*.js",
-    "lint-fix": "eslint src/*.js --fix"
+    "lint-fix": "eslint src/*.js --fix",
+    "test": "jest"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
   }
 }

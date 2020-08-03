@@ -32,3 +32,9 @@ _Dev Dependencies_
 - webpack-cli
 - webpack-dev-server
 - jest
+
+## Required Components
+
+- Button
+- Keypad
+- Display
