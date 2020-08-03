@@ -115,6 +115,8 @@ export default class ExpressionStack {
     return this.stack.map(e => {
       if (OPERATIONS[e]?.type === e) {
         return OPERATIONS[e].operator;
+      } else if (e.includes('%')) {
+        return '(' + e.replace('%', ' / 100 ') + ')';
       } else {
         return e;
       }

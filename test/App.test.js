@@ -226,4 +226,33 @@ describe('Basic functionality', () => {
     expect(display.textContent).toBe('= 4.4');
 
   });
+
+  test('Calculates percentage from a number', () => {
+    act(() => {
+      ReactDOM.render(<App />, container);
+    });
+
+    const input = container.querySelector('.Display');
+    const buttonTwo = container.querySelector('button[value="2"]');
+    const buttonFive = container.querySelector('button[value="5"]');
+    const buttonMultiply = container.querySelector('button[value="MULTIPLY"]');
+    const buttonPercentage = container.querySelector('button[value="PERCENTAGE"]');
+    const buttonEquals = container.querySelector('button[value="EQUAL"]');
+
+    act(() => {
+      buttonTwo.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+      buttonFive.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+      buttonMultiply.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+      buttonFive.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+      buttonPercentage.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+    });
+
+    expect(input.textContent).toBe('25 × 5%');
+
+    act(() => {
+      buttonEquals.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+    });
+
+    expect(input.textContent).toBe('= 1.25');
+    });
 });

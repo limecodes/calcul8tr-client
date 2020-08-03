@@ -38,6 +38,7 @@ const handleOperations = (value, action) => {
       stack.float();
       break;
     case PERCENTAGE:
+      stack.percent();
       break;
     default:
       return;
