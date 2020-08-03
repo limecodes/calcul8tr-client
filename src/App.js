@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Display from './components/Display';
 import Keypad from './components/Keypad';
@@ -6,9 +6,11 @@ import Keypad from './components/Keypad';
 import './style.css';
 
 function App() {
+  const [expression, setExpression] = useState('');
+
   return (
     <div className="App">
-      <Display />
+      <Display value={expression} />
       <div className="Keypad">
         <Keypad />
       </div>

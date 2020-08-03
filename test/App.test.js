@@ -22,7 +22,7 @@ describe('Basic functionality', () => {
     });
 
     const display = container.querySelector('.Display');
-    expect(display.textContent).toBe('0');
+    expect(display.textContent).toBe('');
   });
 
   test('Renders displays keypad', () => {
