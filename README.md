@@ -10,31 +10,9 @@
 
 - I'm not using `create-react-app` to scaffold the project, instead I'm doing all configurations by hand to avoid blind configuration so that I have full control over the dependencies that I'm installing and using
 
-## Required Dependencies
+## Installation Instructions
 
-_Main Dependencies_
-
-- React
-- ReactDOM
-
-_Dev Dependencies_
-
-- eslint
-- prettier
-- @babel/core
-- @babel/preset-env
-- @babel/preset-react
-- babel-loader
-- css-loader
-- style-loader
-- html-webpack-plugin
-- webpack
-- webpack-cli
-- webpack-dev-server
-- jest
-
-## Required Components
-
-- Button
-- Keypad
-- Display
+1. `git clone <this repo>`
+1. `cd <this project>`
+1. `yarn install`
+1. `yarn run start`
