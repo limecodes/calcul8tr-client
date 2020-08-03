@@ -273,3 +273,26 @@ describe('Basic functionality', () => {
     expect(input.textContent).toBe('-2');
   });
 });
+
+describe('Handle known failure points', () => {
+  test('Division by zero', () => {
+    act(() => {
+      ReactDOM.render(<App />, container);
+    });
+
+    const input = container.querySelector('.Display');
+    const buttonTwo = container.querySelector('button[value="2"]');
+    const buttonZero = container.querySelector('button[value="0"]');
+    const buttonDivide = container.querySelector('button[value="DIVIDE"]');
+    const buttonEquals = container.querySelector('button[value="EQUAL"]');
+
+    act(() => {
+      buttonTwo.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+      buttonDivide.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+      buttonZero.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+      buttonEquals.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+    });
+
+    expect(input.textContent).toBe('Expression Error');
+  });
+});

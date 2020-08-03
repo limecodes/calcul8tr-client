@@ -50,19 +50,27 @@ const handleOperations = (value, action) => {
   }
 }
 
-const onPress = (setExpression, value, action) => {
-  handleOperations(value, action);
-  setExpression(stack.convertForDisplay());
+const onPress = (setExpression, setError, value, action) => {
+  if (action === CLEAR) setError(null);
+
+  try {
+    handleOperations(value, action);
+    setExpression(stack.convertForDisplay());
+  } catch (error) {
+    setError(error.message);
+    setExpression(stack.convertForDisplay());
+  }
 }
 
 function App() {
   const [expression, setExpression] = useState('');
+  const [error, setError] = useState(null);
 
   return (
     <div className="App">
-      <Display value={expression} />
+      <Display value={expression} error={error} />
       <div className="Keypad">
-        <Keypad onPress={onPress.bind(null, setExpression)} />
+        <Keypad onPress={onPress.bind(null, setExpression, setError)} />
       </div>
     </div>
   );
