@@ -49,4 +49,26 @@ describe('Basic functionality', () => {
 
     expect(display.textContent).toBe('2');
   });
+
+  test('Should clear display', () => {
+
+  });
+
+  test('Displays an expression', () => {
+    act(() => {
+      ReactDOM.render(<App />, container);
+    });
+
+    const input = container.querySelector('.Display');
+    const buttonTwo = container.querySelector('button[value="2"]');
+    const buttonAdd = container.querySelector('button[value="ADD"]');
+
+    act(() => {
+      buttonTwo.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+      buttonAdd.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+      buttonTwo.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+    });
+
+    expect(input.textContent).toBe('2 + 2');
+  });
 });

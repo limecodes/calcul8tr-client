@@ -6,6 +6,7 @@ Array [
     className="Button"
   >
     <button
+      className="number"
       onClick={[Function]}
       value={7}
     >
@@ -16,6 +17,7 @@ Array [
     className="Button"
   >
     <button
+      className="number"
       onClick={[Function]}
       value={8}
     >
@@ -26,6 +28,7 @@ Array [
     className="Button"
   >
     <button
+      className="number"
       onClick={[Function]}
       value={9}
     >
@@ -47,6 +50,7 @@ Array [
     className="Button"
   >
     <button
+      className="number"
       onClick={[Function]}
       value={4}
     >
@@ -57,6 +61,7 @@ Array [
     className="Button"
   >
     <button
+      className="number"
       onClick={[Function]}
       value={5}
     >
@@ -67,6 +72,7 @@ Array [
     className="Button"
   >
     <button
+      className="number"
       onClick={[Function]}
       value={6}
     >
@@ -88,6 +94,7 @@ Array [
     className="Button"
   >
     <button
+      className="number"
       onClick={[Function]}
       value={1}
     >
@@ -98,6 +105,7 @@ Array [
     className="Button"
   >
     <button
+      className="number"
       onClick={[Function]}
       value={2}
     >
@@ -108,6 +116,7 @@ Array [
     className="Button"
   >
     <button
+      className="number"
       onClick={[Function]}
       value={3}
     >
@@ -129,10 +138,22 @@ Array [
     className="Button"
   >
     <button
+      className="number"
       onClick={[Function]}
       value={0}
     >
       0
+    </button>
+  </div>,
+  <div
+    className="Button"
+  >
+    <button
+      className="operation"
+      onClick={[Function]}
+      value="ADD"
+    >
+      +
     </button>
   </div>,
   <div

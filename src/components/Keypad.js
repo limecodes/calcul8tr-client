@@ -12,7 +12,7 @@ const layout = [
   [7, 8, 9, DIVIDE],
   [4, 5, 6, MULTIPLY],
   [1, 2, 3, SUBTRACT],
-  [0, EQUAL],
+  [0, ADD, EQUAL],
 ];
 
 function Keypad(props) {

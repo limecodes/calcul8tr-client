@@ -33,7 +33,7 @@ export default class ExpressionStack {
     return isOdd(this.stack.length);
   }
 
-  setTop() {
+  setTop(value) {
     const top = this.stack.length > 0 ? this.stack.length - 1 : 0;
 
     this.stack[top] = value;

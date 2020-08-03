@@ -18,7 +18,7 @@ function Button(props) {
   if (typeof value === 'object') {
     return (<button className={value.action.toLowerCase()} value={value.type} onClick={handlePress.bind(null, value.action, onPress)}>{value.text}</button>);
   } else if (typeof value === 'number') {
-    return (<button value={value} onClick={handlePress.bind(null, ACTIONS.NUMBER, onPress)}>{value}</button>);
+    return (<button className='number' value={value} onClick={handlePress.bind(null, ACTIONS.NUMBER, onPress)}>{value}</button>);
   } else {
     return (<span className='Placeholder'>{' '}</span>);
   }
