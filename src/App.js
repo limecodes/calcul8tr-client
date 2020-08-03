@@ -12,17 +12,30 @@ import './style.css';
 const {
   NUMBER,
   OPERATION,
+  CLEAR,
 } = ACTIONS;
 
 const stack = new ExpressionStack();
 
-const onPress = (setExpression, value, action) => {
-  if (action === NUMBER) {
-    stack.push(value);
-  } else if (action === OPERATION) {
-    stack.push(value);
+const handleOperations = (value, action) => {
+  switch (action) {
+    case NUMBER:
+      stack.push(value);
+      break;
+    case OPERATION:
+      stack.push(value);
+      break;
+    case CLEAR:
+      stack.clear();
+      break;
+    default:
+      return;
+      break;
   }
+}
 
+const onPress = (setExpression, value, action) => {
+  handleOperations(value, action);
   setExpression(stack.convertForDisplay());
 }
 

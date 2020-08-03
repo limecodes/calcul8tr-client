@@ -51,7 +51,18 @@ describe('Basic functionality', () => {
   });
 
   test('Should clear display', () => {
+    act(() => {
+      ReactDOM.render(<App />, container);
+    });
 
+    const display = container.querySelector('.Display');
+    const buttonClear = container.querySelector('button[value="CLEAR"]');
+
+    act(() =>{
+      buttonClear.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+    });
+
+    expect(display.textContent).toBe('0');
   });
 
   test('Displays an expression', () => {

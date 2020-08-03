@@ -23,6 +23,10 @@ export default class ExpressionStack {
     this.stack.push(value);
   }
 
+  clear() {
+    this.stack.length = 0;
+  }
+
   pushOperation(value) {
     if (this.isPositionOdd()) {
       this.stack.push(value)

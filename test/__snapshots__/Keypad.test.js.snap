@@ -5,6 +5,44 @@ Array [
   <div
     className="Button"
   >
+    <span
+      className="Placeholder"
+    >
+       
+    </span>
+  </div>,
+  <div
+    className="Button"
+  >
+    <span
+      className="Placeholder"
+    >
+       
+    </span>
+  </div>,
+  <div
+    className="Button"
+  >
+    <span
+      className="Placeholder"
+    >
+       
+    </span>
+  </div>,
+  <div
+    className="Button"
+  >
+    <button
+      className="clear"
+      onClick={[Function]}
+      value="CLEAR"
+    >
+      AC
+    </button>
+  </div>,
+  <div
+    className="Button"
+  >
     <button
       className="number"
       onClick={[Function]}
