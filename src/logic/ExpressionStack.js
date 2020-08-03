@@ -1,3 +1,4 @@
+import { OPERATIONS } from '../constants';
 import { isOdd } from '../utils';
 
 export default class ExpressionStack {
@@ -44,5 +45,15 @@ export default class ExpressionStack {
 
   getStack() {
     return this.stack;
+  }
+
+  convertForDisplay() {
+    return this.stack.map(e => {
+      if (OPERATIONS[e]?.type === e) {
+        return OPERATIONS[e].text;
+      } else {
+        return e;
+      }
+    }).join(' ');
   }
 }
