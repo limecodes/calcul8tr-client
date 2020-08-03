@@ -19,3 +19,19 @@ body {
   flex-direction: column;
   flex-wrap: wrap;
 }
+
+.Display {
+  width: 97%;
+  border: 1px solid black;
+  border-radius: 0.5em;
+  padding: 1em;
+  flex: 0 0 auto;
+}
+
+.Keypad {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex: 1 0 auto;
+}
