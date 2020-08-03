@@ -12,11 +12,13 @@
 
 ## Required Dependencies
 
-*Main Dependencies*
+_Main Dependencies_
+
 - React
 - ReactDOM
 
-*Dev Dependencies*
+_Dev Dependencies_
+
 - eslint
 - prettier
 - @babel/core
