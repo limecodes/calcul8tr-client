@@ -1,2 +1,3 @@
 - Create test if function triggers on click on component Keypad
 - Replace constants in ExpressionStack.test.js
+- [ExpressionStack] Since I have separate callbacks for operations and number, I can either pass the number OR I can have the class decide what type it is `push(value, type = 'number')`

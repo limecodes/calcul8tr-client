@@ -16,6 +16,7 @@ const {
   CALCULATE,
   FLOAT,
   PERCENTAGE,
+  TOGGLE_NEGATIVE,
 } = ACTIONS;
 
 const stack = new ExpressionStack();
@@ -39,6 +40,9 @@ const handleOperations = (value, action) => {
       break;
     case PERCENTAGE:
       stack.percent();
+      break;
+    case TOGGLE_NEGATIVE:
+      stack.negative();
       break;
     default:
       return;

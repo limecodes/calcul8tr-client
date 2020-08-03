@@ -52,6 +52,16 @@ export default class ExpressionStack {
     this.setTop(previousValue + '.');
   }
 
+  negative() {
+    if (this.hasEqual()) this.truncate();
+
+    if (this.isPositionOdd() && this.stack.length > 0) {
+      const previousValue = this.top();
+      const toggleNegative = Number(previousValue) * -1;
+      this.setTop(toggleNegative.toString());
+    }
+  }
+
   clear() {
     this.stack.length = 0;
   }

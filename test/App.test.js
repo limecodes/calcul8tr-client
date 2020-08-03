@@ -254,5 +254,22 @@ describe('Basic functionality', () => {
     });
 
     expect(input.textContent).toBe('= 1.25');
+  });
+
+  test('Toggles negative number', () => {
+    act(() => {
+      ReactDOM.render(<App />, container);
     });
+
+    const input = container.querySelector('.Display');
+    const buttonTwo = container.querySelector('button[value="2"]');
+    const buttonToggleNegative = container.querySelector('button[value="TOGGLE_NEGATIVE"]');
+
+    act(() => {
+      buttonTwo.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+      buttonToggleNegative.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+    });
+
+    expect(input.textContent).toBe('-2');
+  });
 });
