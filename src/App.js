@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <Display value={expression} />
       <div className="Keypad">
-        <Keypad onPress={(e) => setExpression(e.target.value)} />
+        <Keypad onPress={(e) => setExpression(e)} />
       </div>
     </div>
   );
