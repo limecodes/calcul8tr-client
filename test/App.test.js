@@ -70,9 +70,10 @@ describe('Basic functionality', () => {
       ReactDOM.render(<App />, container);
     });
 
-    const input = container.querySelector('.Display');
+    const display = container.querySelector('.Display');
     const buttonTwo = container.querySelector('button[value="2"]');
     const buttonAdd = container.querySelector('button[value="ADD"]');
+    const buttonClear = container.querySelector('button[value="CLEAR"]');
 
     act(() => {
       buttonTwo.dispatchEvent(new MouseEvent('click', {bubbles: true}));
@@ -80,6 +81,32 @@ describe('Basic functionality', () => {
       buttonTwo.dispatchEvent(new MouseEvent('click', {bubbles: true}));
     });
 
-    expect(input.textContent).toBe('2 + 2');
+    expect(display.textContent).toBe('2 + 2');
+
+    act(() =>{
+      buttonClear.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+    });
+
+    expect(display.textContent).toBe('0');
+  });
+
+  test('Should display calculated expression', () => {
+    act(() => {
+      ReactDOM.render(<App />, container);
+    });
+
+    const input = container.querySelector('.Display');
+    const buttonTwo = container.querySelector('button[value="2"]');
+    const buttonAdd = container.querySelector('button[value="ADD"]');
+    const buttonCalculate = container.querySelector('button[value="EQUAL"]');
+
+    act(() => {
+      buttonTwo.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+      buttonAdd.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+      buttonTwo.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+      buttonCalculate.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+    });
+
+    expect(input.textContent).toBe('= 4');
   });
 });

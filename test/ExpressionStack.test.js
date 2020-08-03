@@ -53,4 +53,32 @@ describe('Basic Functionality', () => {
 
     expect(expressionStack.convertForDisplay()).toEqual(expected);
   });
+
+  test('Should clear display', () => {
+    const expressionStack = new ExpressionStack();
+
+    expressionStack.push('2');
+    expressionStack.push(MULTIPLY);
+    expressionStack.push('2');
+    expressionStack.clear();
+
+    const expected = [];
+
+    expect(expressionStack.getStack()).toEqual(expected);
+  });
+
+  test('Should calculate an expression', () => {
+    const expressionStack = new ExpressionStack();
+
+    expressionStack.push('2');
+    expressionStack.push(MULTIPLY);
+    expressionStack.push('2');
+    expressionStack.calculate();
+
+    const expectedExpression = '= 4';
+    const expectedStack = ['=', '4'];
+
+    expect(expressionStack.convertForDisplay()).toEqual(expectedExpression);
+    expect(expressionStack.stack).toEqual(expectedStack);
+  });
 });

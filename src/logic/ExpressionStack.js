@@ -1,3 +1,5 @@
+import { evaluate } from 'mathjs';
+
 import { OPERATIONS } from '../constants';
 import { isOdd } from '../utils';
 
@@ -47,8 +49,37 @@ export default class ExpressionStack {
     return this.stack[this.stack.length - 1];
   }
 
+  equal(result) {
+    this.stack.push(OPERATIONS.EQUAL.operator, result.toString());
+  }
+
+  calculate() {
+    const strExpression = this.convertForCalculation();
+    const expressionCalculation = Number(evaluate(strExpression));
+
+    const result = Number.isFinite(expressionCalculation) ? expressionCalculation : new Error('Expression Error');
+
+    if (result.constructor.name !== 'Error') {
+      this.clear();
+      this.equal(result);
+    } else {
+      this.clear();
+      throw result;
+    }
+  }
+
   getStack() {
     return this.stack;
+  }
+
+  convertForCalculation() {
+    return this.stack.map(e => {
+      if (OPERATIONS[e]?.type === e) {
+        return OPERATIONS[e].operator;
+      } else {
+        return e;
+      }
+    }).join('');
   }
 
   convertForDisplay() {

@@ -13,6 +13,7 @@ const {
   NUMBER,
   OPERATION,
   CLEAR,
+  CALCULATE,
 } = ACTIONS;
 
 const stack = new ExpressionStack();
@@ -27,6 +28,9 @@ const handleOperations = (value, action) => {
       break;
     case CLEAR:
       stack.clear();
+      break;
+    case CALCULATE:
+      stack.calculate();
       break;
     default:
       return;
