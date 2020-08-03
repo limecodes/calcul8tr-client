@@ -4,13 +4,9 @@ import { OPERATIONS, MODIFIERS } from '../constants';
 
 import Button from './Button';
 
-const {
-    MULTIPLY, DIVIDE, SUBTRACT, ADD, EQUAL,
-} = OPERATIONS;
+const { MULTIPLY, DIVIDE, SUBTRACT, ADD, EQUAL } = OPERATIONS;
 
-const {
-    CLEAR, TOGGLE_NEGATIVE, PERCENTAGE, FLOAT,
-} = MODIFIERS;
+const { CLEAR, TOGGLE_NEGATIVE, PERCENTAGE, FLOAT } = MODIFIERS;
 
 const layout = [
   ['', TOGGLE_NEGATIVE, PERCENTAGE, CLEAR],

@@ -48,7 +48,7 @@ const handleOperations = (value, action) => {
       return;
       break;
   }
-}
+};
 
 const onPress = (setExpression, setError, value, action) => {
   if (action === CLEAR) setError(null);
@@ -60,7 +60,7 @@ const onPress = (setExpression, setError, value, action) => {
     setError(error.message);
     setExpression(stack.convertForDisplay());
   }
-}
+};
 
 function App() {
   const [expression, setExpression] = useState('');

@@ -58,11 +58,12 @@ button {
   font-size: 1.5em;
 }
 
-button.number, button.float {
-    background: #f1f3f4;
+button.number,
+button.float {
+  background: #f1f3f4;
 }
 
 button.calculate {
-    background: #4285f4;
-    color: white;
+  background: #4285f4;
+  color: white;
 }

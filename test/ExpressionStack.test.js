@@ -14,9 +14,7 @@ describe('Basic Functionality', () => {
 
     expressionStack.push('2');
 
-    const expected = [
-      '2'
-    ];
+    const expected = ['2'];
 
     expect(expressionStack.stack).toEqual(expected);
   });

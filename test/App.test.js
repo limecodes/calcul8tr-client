@@ -43,8 +43,8 @@ describe('Basic functionality', () => {
     const display = container.querySelector('.Display');
     const buttonTwo = container.querySelector('button[value="2"]');
 
-    act(() =>{
-      buttonTwo.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+    act(() => {
+      buttonTwo.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
 
     expect(display.textContent).toBe('2');
@@ -58,8 +58,8 @@ describe('Basic functionality', () => {
     const display = container.querySelector('.Display');
     const buttonClear = container.querySelector('button[value="CLEAR"]');
 
-    act(() =>{
-      buttonClear.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+    act(() => {
+      buttonClear.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
 
     expect(display.textContent).toBe('0');
@@ -76,15 +76,15 @@ describe('Basic functionality', () => {
     const buttonClear = container.querySelector('button[value="CLEAR"]');
 
     act(() => {
-      buttonTwo.dispatchEvent(new MouseEvent('click', {bubbles: true}));
-      buttonAdd.dispatchEvent(new MouseEvent('click', {bubbles: true}));
-      buttonTwo.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+      buttonTwo.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      buttonAdd.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      buttonTwo.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
 
     expect(display.textContent).toBe('2 + 2');
 
-    act(() =>{
-      buttonClear.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+    act(() => {
+      buttonClear.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
 
     expect(display.textContent).toBe('0');
@@ -101,10 +101,10 @@ describe('Basic functionality', () => {
     const buttonCalculate = container.querySelector('button[value="EQUAL"]');
 
     act(() => {
-      buttonTwo.dispatchEvent(new MouseEvent('click', {bubbles: true}));
-      buttonAdd.dispatchEvent(new MouseEvent('click', {bubbles: true}));
-      buttonTwo.dispatchEvent(new MouseEvent('click', {bubbles: true}));
-      buttonCalculate.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+      buttonTwo.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      buttonAdd.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      buttonTwo.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      buttonCalculate.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
 
     expect(display.textContent).toBe('= 4');
@@ -121,31 +121,31 @@ describe('Basic functionality', () => {
     const buttonClear = container.querySelector('button[value="CLEAR"]');
     const buttonCalculate = container.querySelector('button[value="EQUAL"]');
 
-    act(() =>{
-      buttonClear.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+    act(() => {
+      buttonClear.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
 
     expect(display.textContent).toBe('0');
 
     act(() => {
-      buttonTwo.dispatchEvent(new MouseEvent('click', {bubbles: true}));
-      buttonAdd.dispatchEvent(new MouseEvent('click', {bubbles: true}));
-      buttonTwo.dispatchEvent(new MouseEvent('click', {bubbles: true}));
-      buttonCalculate.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+      buttonTwo.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      buttonAdd.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      buttonTwo.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      buttonCalculate.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
 
     expect(display.textContent).toBe('= 4');
 
     act(() => {
-      buttonAdd.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+      buttonAdd.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
 
     expect(display.textContent).toBe('4 +');
 
     act(() => {
-      buttonAdd.dispatchEvent(new MouseEvent('click', {bubbles: true}));
-      buttonTwo.dispatchEvent(new MouseEvent('click', {bubbles: true}));
-      buttonCalculate.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+      buttonAdd.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      buttonTwo.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      buttonCalculate.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
 
     expect(display.textContent).toBe('= 6');
@@ -162,23 +162,23 @@ describe('Basic functionality', () => {
     const buttonClear = container.querySelector('button[value="CLEAR"]');
     const buttonCalculate = container.querySelector('button[value="EQUAL"]');
 
-    act(() =>{
-      buttonClear.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+    act(() => {
+      buttonClear.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
 
     expect(display.textContent).toBe('0');
 
     act(() => {
-      buttonTwo.dispatchEvent(new MouseEvent('click', {bubbles: true}));
-      buttonAdd.dispatchEvent(new MouseEvent('click', {bubbles: true}));
-      buttonTwo.dispatchEvent(new MouseEvent('click', {bubbles: true}));
-      buttonCalculate.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+      buttonTwo.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      buttonAdd.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      buttonTwo.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      buttonCalculate.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
 
     expect(display.textContent).toBe('= 4');
 
-    act(() =>{
-      buttonTwo.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+    act(() => {
+      buttonTwo.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
 
     expect(display.textContent).toBe('2');
@@ -196,35 +196,34 @@ describe('Basic functionality', () => {
     const buttonFloat = container.querySelector('button[value="FLOAT"]');
     const buttonCalculate = container.querySelector('button[value="EQUAL"]');
 
-    act(() =>{
-      buttonClear.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+    act(() => {
+      buttonClear.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
 
     expect(display.textContent).toBe('0');
 
-    act(() =>{
-      buttonTwo.dispatchEvent(new MouseEvent('click', {bubbles: true}));
-      buttonFloat.dispatchEvent(new MouseEvent('click', {bubbles: true}));
-      buttonTwo.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+    act(() => {
+      buttonTwo.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      buttonFloat.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      buttonTwo.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
 
     expect(display.textContent).toBe('2.2');
 
-    act(() =>{
-      buttonAdd.dispatchEvent(new MouseEvent('click', {bubbles: true}));
-      buttonTwo.dispatchEvent(new MouseEvent('click', {bubbles: true}));
-      buttonFloat.dispatchEvent(new MouseEvent('click', {bubbles: true}));
-      buttonTwo.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+    act(() => {
+      buttonAdd.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      buttonTwo.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      buttonFloat.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      buttonTwo.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
 
     expect(display.textContent).toBe('2.2 + 2.2');
 
-    act(() =>{
-      buttonCalculate.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+    act(() => {
+      buttonCalculate.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
 
     expect(display.textContent).toBe('= 4.4');
-
   });
 
   test('Calculates percentage from a number', () => {
@@ -236,21 +235,25 @@ describe('Basic functionality', () => {
     const buttonTwo = container.querySelector('button[value="2"]');
     const buttonFive = container.querySelector('button[value="5"]');
     const buttonMultiply = container.querySelector('button[value="MULTIPLY"]');
-    const buttonPercentage = container.querySelector('button[value="PERCENTAGE"]');
+    const buttonPercentage = container.querySelector(
+      'button[value="PERCENTAGE"]'
+    );
     const buttonEquals = container.querySelector('button[value="EQUAL"]');
 
     act(() => {
-      buttonTwo.dispatchEvent(new MouseEvent('click', {bubbles: true}));
-      buttonFive.dispatchEvent(new MouseEvent('click', {bubbles: true}));
-      buttonMultiply.dispatchEvent(new MouseEvent('click', {bubbles: true}));
-      buttonFive.dispatchEvent(new MouseEvent('click', {bubbles: true}));
-      buttonPercentage.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+      buttonTwo.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      buttonFive.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      buttonMultiply.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      buttonFive.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      buttonPercentage.dispatchEvent(
+        new MouseEvent('click', { bubbles: true })
+      );
     });
 
     expect(input.textContent).toBe('25 × 5%');
 
     act(() => {
-      buttonEquals.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+      buttonEquals.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
 
     expect(input.textContent).toBe('= 1.25');
@@ -263,11 +266,15 @@ describe('Basic functionality', () => {
 
     const input = container.querySelector('.Display');
     const buttonTwo = container.querySelector('button[value="2"]');
-    const buttonToggleNegative = container.querySelector('button[value="TOGGLE_NEGATIVE"]');
+    const buttonToggleNegative = container.querySelector(
+      'button[value="TOGGLE_NEGATIVE"]'
+    );
 
     act(() => {
-      buttonTwo.dispatchEvent(new MouseEvent('click', {bubbles: true}));
-      buttonToggleNegative.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+      buttonTwo.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      buttonToggleNegative.dispatchEvent(
+        new MouseEvent('click', { bubbles: true })
+      );
     });
 
     expect(input.textContent).toBe('-2');
@@ -287,10 +294,10 @@ describe('Handle known failure points', () => {
     const buttonEquals = container.querySelector('button[value="EQUAL"]');
 
     act(() => {
-      buttonTwo.dispatchEvent(new MouseEvent('click', {bubbles: true}));
-      buttonDivide.dispatchEvent(new MouseEvent('click', {bubbles: true}));
-      buttonZero.dispatchEvent(new MouseEvent('click', {bubbles: true}));
-      buttonEquals.dispatchEvent(new MouseEvent('click', {bubbles: true}));
+      buttonTwo.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      buttonDivide.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      buttonZero.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+      buttonEquals.dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
 
     expect(input.textContent).toBe('Expression Error');
