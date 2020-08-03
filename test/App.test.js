@@ -24,4 +24,13 @@ describe('Basic functionality', () => {
     const display = container.querySelector('.Display');
     expect(display.textContent).toBe('0');
   });
+
+  test('Renders displays keypad', () => {
+    act(() => {
+      ReactDOM.render(<App />, container);
+    });
+
+    const display = container.querySelector('.Keypad');
+    expect(display.textContent).toBe('Keypad');
+  });
 });
