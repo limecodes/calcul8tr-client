@@ -28,17 +28,22 @@ const calculate = async (expression, setExpression, setError) => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({expression: expression}),
+      body: JSON.stringify({expression: stack.getStack()}),
     });
 
     const calculation = await response.json();
 
-    stack.clear();
-    stack.equal(calculation);
-    setExpression(stack.convertForDisplay());
+    if (!calculation.error) {
+      stack.clear();
+      stack.equal(Number(calculation.result));
+      setExpression(stack.convertForDisplay());
+    } else {
+      stack.clear();
+      setError(calculation.error);
+    }
   } catch (error) {
     stack.clear();
-    setError('Expression Error');
+    setError(error.message);
   }
 }
 
@@ -52,7 +57,6 @@ const handleOperations = (value, action, setExpression, setError) => {
       break;
     case CALCULATE:
       calculate(stack.convertForCalculation(), setExpression, setError);
-      // stack.calculate();
       break;
     case CLEAR:
       stack.clear();
