@@ -53,4 +53,6 @@ Before installing the API & Client, please create a folder that will house the t
 
 You may run the tests within the repository folder by running `yarn run test` or simply `yarn test`
 
+## Known Limitations / Improvements
 
+- Using `.bind()` in JSX components is allowed in eslint and is being used in the `App` component: It's true that using `.bind()` in JSX should be avoided because the function will create a new function on every render and may unnecessary re-render. However, my alternative is to use an arrow function or functions inside the functional component in order to have access to `useState`.
