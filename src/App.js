@@ -23,12 +23,12 @@ const stack = new ExpressionStack();
 
 const calculate = async (expression, setExpression, setError) => {
   try {
-    const response = await fetch(`http://localhost:3001/calculate`, {
+    const response = await fetch('http://localhost:3001/calculate', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify({expression: stack.getStack()}),
+      body: JSON.stringify({ expression: stack.getStack() }),
     });
 
     const calculation = await response.json();
@@ -45,7 +45,7 @@ const calculate = async (expression, setExpression, setError) => {
     stack.clear();
     setError(error.message);
   }
-}
+};
 
 const handleOperations = (value, action, setExpression, setError) => {
   switch (action) {
@@ -71,7 +71,7 @@ const handleOperations = (value, action, setExpression, setError) => {
       stack.negative();
       break;
     default:
-      return;
+
       break;
   }
 };
