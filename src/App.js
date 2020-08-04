@@ -21,7 +21,28 @@ const {
 
 const stack = new ExpressionStack();
 
-const handleOperations = (value, action) => {
+const calculate = async (expression, setExpression, setError) => {
+  try {
+    const response = await fetch(`http://localhost:3001/calculate`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({expression: expression}),
+    });
+
+    const calculation = await response.json();
+
+    stack.clear();
+    stack.equal(calculation);
+    setExpression(stack.convertForDisplay());
+  } catch (error) {
+    stack.clear();
+    setError('Expression Error');
+  }
+}
+
+const handleOperations = (value, action, setExpression, setError) => {
   switch (action) {
     case NUMBER:
       stack.push(value);
@@ -30,7 +51,8 @@ const handleOperations = (value, action) => {
       stack.push(value);
       break;
     case CALCULATE:
-      stack.calculate();
+      calculate(stack.convertForCalculation(), setExpression, setError);
+      // stack.calculate();
       break;
     case CLEAR:
       stack.clear();
@@ -54,7 +76,7 @@ const onPress = (setExpression, setError, value, action) => {
   if (action === CLEAR) setError(null);
 
   try {
-    handleOperations(value, action);
+    handleOperations(value, action, setExpression, setError);
     setExpression(stack.convertForDisplay());
   } catch (error) {
     setError(error.message);
