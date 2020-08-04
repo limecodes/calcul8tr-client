@@ -212,7 +212,11 @@ test('Hitting a number after a calculation should clear and display number', asy
 });
 
 test('Should be able to do decimal number operations', async () => {
-  fetch.mockResponseOnce(JSON.stringify({ result: '4.4' }));
+  stack.push('2.2');
+  stack.push('ADD');
+  stack.push('2.2');
+  stack.calculate();
+  fetch.mockResponseOnce(JSON.stringify({ result: stack.top() }));
 
   act(() => {
     ReactDOM.render(<App />, container);
@@ -256,7 +260,12 @@ test('Should be able to do decimal number operations', async () => {
 });
 
 test('Calculates percentage from a number', async () => {
-  fetch.mockResponseOnce(JSON.stringify({ result: '1.25' }));
+  stack.push('25');
+  stack.push('MULTIPLY');
+  stack.push('5');
+  stack.percent();
+  stack.calculate();
+  fetch.mockResponseOnce(JSON.stringify({ result: stack.top() }));
 
   act(() => {
     ReactDOM.render(<App />, container);
