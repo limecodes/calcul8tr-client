@@ -8,6 +8,7 @@
   "extends": ["react-app", "airbnb"],
   "plugins": ["react", "import"],
   "rules": {
-    "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx"] }]
+    "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx"] }],
+    'react/jsx-no-bind': ['error', { allowBind: true }]
   }
 }
